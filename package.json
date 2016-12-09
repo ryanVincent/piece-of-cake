@@ -6,6 +6,7 @@
     "react-scripts": "0.8.3"
   },
   "dependencies": {
+    "fetch": "^1.1.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   },
@@ -14,5 +15,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy": "https://gist.githubusercontent.com/hart88/198f29ec5114a3ec3460/raw/8dd19a88f9b8d24c23d9960f3300d0c917a4f07c"
 }

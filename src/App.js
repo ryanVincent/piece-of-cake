@@ -3,6 +3,17 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  componentDidMount() {
+    fetch('/cake.json')
+      .then((cakes) => {
+        return cakes.json()
+      })
+      .then((json) => {
+        console.log(json);
+      });
+  }
+
   render() {
     return (
       <div className="App">

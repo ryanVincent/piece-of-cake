@@ -1,30 +1,43 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { getCakes } from './cakes/api';
+import { Button } from 'react-toolbox/lib/button';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
+import AppBar from 'material-ui/AppBar';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      cakes: []
+    };
+  }
+
   componentDidMount() {
-    fetch('/cake.json')
-      .then((cakes) => {
-        return cakes.json()
-      })
-      .then((json) => {
-        console.log(json);
-      });
+    var self = this;
+    //this.state.cakes = [];
+    getCakes().then((cakes) => {
+      console.log(cakes);
+      self.setState({ cakes })
+    })
   }
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <MuiThemeProvider>
+          <div className="App">
+            <AppBar title="Piece of Cake"></AppBar>
+            {this.state.cakes.map((cake) => (<Card>
+              <CardTitle title={cake.title} />
+              <CardText>{cake.desc}</CardText>
+            </Card>))}
+          </div>
+      </MuiThemeProvider>
+
     );
   }
 }

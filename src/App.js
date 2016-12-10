@@ -7,6 +7,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import CakeList from './cakes/components/CakeList';
+import 'flexboxgrid/css/flexboxgrid.min.css';
 
 class App extends Component {
 
@@ -31,10 +33,9 @@ class App extends Component {
       <MuiThemeProvider>
           <div className="App">
             <AppBar title="Piece of Cake"></AppBar>
-            {this.state.cakes.map((cake) => (<Card>
-              <CardTitle title={cake.title} />
-              <CardText>{cake.desc}</CardText>
-            </Card>))}
+            <div className = "container">
+                <CakeList cakes={this.state.cakes} />
+            </div>
           </div>
       </MuiThemeProvider>
 

@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 
+html {
+  background-color: #efefef;
+}
 
 .App {
   text-align: center;
@@ -31,8 +34,14 @@
   padding: 10px;
 }
 
+.row {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .container {
   margin: 0 auto;
+  margin-top: 5rem;
 }
 
 .primary-action-button {

@@ -6,6 +6,12 @@ import CakeForm from './CakeForm';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
+let style = {
+  cardMedia: {
+    borderBottom: '1px solid #efefef'
+  }
+};
+
 export default class CakeItem extends Component {
 
   constructor(props) {
@@ -52,7 +58,7 @@ export default class CakeItem extends Component {
     return (
       <div>
         <Card>
-          <CardMedia>
+          <CardMedia style={style.cardMedia}>
             <img src={cake.image} />
           </CardMedia>
           <CardTitle title={cake.title} subtitle={cake.desc} />

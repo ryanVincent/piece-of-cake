@@ -2,7 +2,7 @@ import CakeList from './components/CakeList';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as CakeActions from './actions/cakes';
-import * as SearchTermActions from './actions/searchTerm';
+
 
 import React, {Component} from 'react';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
@@ -14,7 +14,6 @@ export class CakeContainer extends Component {
 
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
     this.handleNewCakeClick = this.handleNewCakeClick.bind(this);
     this.handleSaveClick = this.handleSaveClick.bind(this);
     this.handleSaveCakeClick = this.handleSaveCakeClick.bind(this);
@@ -22,10 +21,6 @@ export class CakeContainer extends Component {
     this.state = {
       newCakeModalOpen : false
     }
-  }
-
-  handleChange(event) {
-    this.props.updateSearchTerm(event.target.value);
   }
 
   handleNewCakeClick() {
@@ -54,7 +49,6 @@ export class CakeContainer extends Component {
   render() {
     return (
       <div>
-        <input type="search" placeholder="Victoria Sponge" onChange={this.handleChange} />
         <CakeList cakes={this.props.cakes} onSaveCakeClick={this.handleSaveCakeClick} />
         <FloatingActionButton className='primary-action-button' onTouchTap={this.handleNewCakeClick}>
           <ContentAdd />
@@ -75,8 +69,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        ...CakeActions,
-        ...SearchTermActions
+        ...CakeActions
     }, dispatch);
 }
 

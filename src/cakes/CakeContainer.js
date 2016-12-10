@@ -7,16 +7,43 @@ import * as SearchTermActions from './actions/searchTerm';
 import React, {Component} from 'react';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import Dialog from 'material-ui/Dialog';
+import CakeForm from './components/CakeForm';
 
 export class CakeContainer extends Component {
 
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.handleNewCakeClick = this.handleNewCakeClick.bind(this);
+    this.handleSaveClick = this.handleSaveClick.bind(this);
+
+    this.state = {
+      newCakeModalOpen : false
+    }
   }
 
   handleChange(event) {
     this.props.updateSearchTerm(event.target.value);
+  }
+
+  handleNewCakeClick() {
+    this.setState({
+      newCakeModalOpen: true
+    });
+  }
+
+  handleSaveClick(cake) {
+    this.props.newCake(cake);
+    this.setState({
+      newCakeModalOpen: false
+    });
+  }
+
+  handleCloseClick() {
+    this.setState({
+      open: false
+    });
   }
 
   render() {
@@ -24,9 +51,12 @@ export class CakeContainer extends Component {
       <div>
         <input type="search" placeholder="Victoria Sponge" onChange={this.handleChange} />
         <CakeList cakes={this.props.cakes} />
-        <FloatingActionButton className='primary-action-button'>
+        <FloatingActionButton className='primary-action-button' onTouchTap={this.handleNewCakeClick}>
           <ContentAdd />
         </FloatingActionButton>
+        <Dialog title="New Cake" modal={true} open={this.state.newCakeModalOpen} >
+          <CakeForm onCancel={this.handleCloseClick} onSave={this.handleSaveClick} />
+        </Dialog>
       </div>
     )
   }
@@ -34,7 +64,7 @@ export class CakeContainer extends Component {
 
 function mapStateToProps(state) {
     return {
-      cakes: state.cakes.filter(cake => cake.title.includes(state.searchTerm))
+      cakes: state.cakes.filter(cake => cake.title.toLowerCase().includes(state.searchTerm.toLowerCase()))
     };
 }
 

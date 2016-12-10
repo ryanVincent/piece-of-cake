@@ -11,6 +11,13 @@ export function fetchCakes() {
   }
 }
 
+export function newCake(cake) {
+  return {
+    type: constants.NEW_CAKE,
+    cake
+  }
+}
+
 function receivedCakes(cakes) {
   return {
     type: constants.RECEIVED_CAKES,

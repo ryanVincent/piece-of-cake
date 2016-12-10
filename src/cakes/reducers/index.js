@@ -1,16 +1,11 @@
 import * as constants from '../constants';
+import cakesReducer from './cakes';
+import searchTermReducer from './searchTerm';
+import { combineReducers } from 'redux';
 
-export default function cakes(state, action) {
-  switch (action.type) {
-    case constants.RECEIVED_CAKES :
-      return {
-        cakes: receivedCakes(action)
-      }
-    default :
-      return state;
-  }
-}
+let reducer = combineReducers({
+  cakes: cakesReducer,
+  searchTerm: searchTermReducer
+});
 
-function receivedCakes(action) {
-  return action.cakes;
-}
+export default reducer;

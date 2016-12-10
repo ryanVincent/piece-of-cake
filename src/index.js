@@ -5,14 +5,15 @@ import './index.css';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import cakeApp from './cakes/reducers';
-import { fetchCakes } from './cakes/actions';
+import { fetchCakes } from './cakes/actions/cakes';
 import ReduxThunk from 'redux-thunk'
-console.log(ReduxThunk)
+
 const initialState = {
   cakes: []
 };
 
 let store = createStore(cakeApp, initialState, applyMiddleware(ReduxThunk));
+console.log(store.getState());
 
 ReactDOM.render(
   <Provider store={store}>
@@ -20,4 +21,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
 store.dispatch(fetchCakes())

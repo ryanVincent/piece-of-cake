@@ -1,0 +1,2 @@
+export const FETCH_CAKES = 'FETCH_CAKES';
+export const RECEIVED_CAKES = 'RECEIVED_CAKES';

@@ -11,13 +11,15 @@ class CakeForm extends Component {
 
     handleSaveClick() {
       let form = document.forms.cakeForm;
+      let { cake } = this.props;
 
-      let cake = {
+      let newCake = {
         title: form.title.value,
         desc: form.desc.value,
         image: form.url.value,
+        id: cake.id
       };
-      this.props.onSave(cake);
+      this.props.onSave(newCake);
     }
 
     render() {
@@ -52,7 +54,8 @@ CakeForm.defaultProps = {
   cake: {
     name: '',
     desc: '',
-    url: ''
+    url: '',
+    id: null
   }
 }
 

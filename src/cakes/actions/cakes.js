@@ -18,6 +18,13 @@ export function newCake(cake) {
   }
 }
 
+export function updateCake(cake) {
+  return {
+    type: constants.UPDATE_CAKE,
+    cake
+  }
+}
+
 function receivedCakes(cakes) {
   return {
     type: constants.RECEIVED_CAKES,

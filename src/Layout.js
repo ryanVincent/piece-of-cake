@@ -6,7 +6,7 @@ export default function Layout({ children }) {
   return (
     <MuiThemeProvider>
       <div className="App">
-        <AppBar title="Piece of Cake"></AppBar>
+        <AppBar className="app-bar" title="Piece of Cake"></AppBar>
         <div className = "container">
           {children}
         </div>

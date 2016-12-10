@@ -17,6 +17,7 @@ export class CakeContainer extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleNewCakeClick = this.handleNewCakeClick.bind(this);
     this.handleSaveClick = this.handleSaveClick.bind(this);
+    this.handleSaveCakeClick = this.handleSaveCakeClick.bind(this);
 
     this.state = {
       newCakeModalOpen : false
@@ -33,6 +34,12 @@ export class CakeContainer extends Component {
     });
   }
 
+  handleCloseClick() {
+    this.setState({
+      open: false
+    });
+  }
+
   handleSaveClick(cake) {
     this.props.newCake(cake);
     this.setState({
@@ -40,17 +47,15 @@ export class CakeContainer extends Component {
     });
   }
 
-  handleCloseClick() {
-    this.setState({
-      open: false
-    });
+  handleSaveCakeClick(cake) {
+    this.props.updateCake(cake);
   }
 
   render() {
     return (
       <div>
         <input type="search" placeholder="Victoria Sponge" onChange={this.handleChange} />
-        <CakeList cakes={this.props.cakes} />
+        <CakeList cakes={this.props.cakes} onSaveCakeClick={this.handleSaveCakeClick} />
         <FloatingActionButton className='primary-action-button' onTouchTap={this.handleNewCakeClick}>
           <ContentAdd />
         </FloatingActionButton>

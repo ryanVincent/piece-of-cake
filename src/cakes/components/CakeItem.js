@@ -33,8 +33,11 @@ export default class CakeItem extends Component {
     })
   }
 
-  handleSaveClick() {
-
+  handleSaveClick(cake) {
+    this.props.onSaveCakeClick(cake);
+    this.setState({
+      open: false
+    });
   }
 
   render() {
@@ -52,7 +55,7 @@ export default class CakeItem extends Component {
           <CardMedia>
             <img src={cake.image} />
           </CardMedia>
-          <CardTitle title={cake.name} subtitle={cake.desc} />
+          <CardTitle title={cake.title} subtitle={cake.desc} />
           <CardActions>
             <FlatButton label="Edit" onClick={this.handleEditClick} />
           </CardActions>

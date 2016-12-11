@@ -1,5 +1,4 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import CakeList from '../../../cakes/components/CakeList';
 import CakeItem from '../../../cakes/components/CakeItem';
 

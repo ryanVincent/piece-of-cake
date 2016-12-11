@@ -1,8 +1,6 @@
 import * as actions from '../../../cakes/actions/cakes';
 import * as constants from '../../../cakes/constants';
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import nock from 'nock'
+import thunk from 'redux-thunk';
 
 describe('cake action creators', () => {
   it('should create an action to add a new cake', () => {

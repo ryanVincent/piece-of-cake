@@ -26,6 +26,6 @@ export default function SearchBox({onChange}) {
   )
 }
 
-SearchBox.PropTypes = {
+SearchBox.propTypes = {
   onChange: PropTypes.func
 }

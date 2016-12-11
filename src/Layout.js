@@ -1,5 +1,5 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
 import AppBar from 'material-ui/AppBar';
 import theme from './theme';
 import SearchBox from './search/components/SearchBox';
@@ -43,6 +43,11 @@ export class Layout extends Component {
   }
 }
 
+Layout.propTypes = {
+  searchTerm: PropTypes.string,
+  updateSearchTerm: PropTypes.func
+};
+
 function mapStateToProps(state) {
     return state;
 }
@@ -52,5 +57,7 @@ function mapDispatchToProps(dispatch) {
         ...SearchTermActions
     }, dispatch);
 }
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout);

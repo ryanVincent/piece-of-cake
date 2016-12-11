@@ -12,6 +12,6 @@ export default function CakeList({ cakes, onSaveCakeClick }) {
   );
 }
 
-CakeList.PropTypes = {
+CakeList.propTypes = {
   cakes: PropTypes.array
 }

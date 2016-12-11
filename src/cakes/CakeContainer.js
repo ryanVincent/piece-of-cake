@@ -62,7 +62,7 @@ export class CakeContainer extends Component {
   }
 }
 
-CakeContainer.PropTypes = {
+CakeContainer.propTypes = {
   cakes: PropTypes.array,
   newCake: PropTypes.func,
   updateCake: PropTypes.func
@@ -75,8 +75,7 @@ export function mapStateToProps(state) {
     };
 }
 
-// exported for testing purposes
-export function matchesSearchTerm(cake, searchTerm) {
+function matchesSearchTerm(cake, searchTerm) {
   return cake.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
          cake.desc.toLowerCase().includes(searchTerm.toLowerCase());
 }

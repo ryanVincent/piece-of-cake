@@ -19,11 +19,13 @@ describe('CakeList', () => {
   it('renders the correct number of cakes', () => {
     const cakes = [
       {
+        "id": "001",
         "title": "Lemon cheesecake",
         "desc": "A cheesecake made of lemon",
         "image": "https://s3-eu-west-1.amazonaws.com/s3.mediafileserver.co.uk/carnation/WebFiles/RecipeImages/lemoncheesecake_lg.jpg"
       },
       {
+        "id": "002",
         "title": "victoria sponge",
         "desc": "sponge with jam",
         "image": "http://www.bbcgoodfood.com/sites/bbcgoodfood.com/files/recipe_images/recipe-image-legacy-id--1001468_10.jpg"

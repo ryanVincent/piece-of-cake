@@ -19,7 +19,6 @@ const app = combineReducers({
 });
 
 let store = createStore(app, initialState, applyMiddleware(ReduxThunk));
-console.log(store.getState());
 
 ReactDOM.render(
   <Provider store={store}>
@@ -28,4 +27,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-store.dispatch(fetchCakes())
+store.dispatch(fetchCakes());

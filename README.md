@@ -7,6 +7,7 @@ To run application
 ```
 git clone https://github.com/ryanVincent/piece-of-cake/
 cd .\piece-of-cake\
+npm install
 npm start
 ```
 

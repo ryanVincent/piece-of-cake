@@ -61,10 +61,16 @@ export class CakeContainer extends Component {
   }
 }
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
     return {
-      cakes: state.cakes.filter(cake => cake.title.toLowerCase().includes(state.searchTerm.toLowerCase()))
+      cakes: state.cakes.filter(cake => matchesSearchTerm(cake, state.searchTerm))
     };
+}
+
+// exported for testing purposes
+export function matchesSearchTerm(cake, searchTerm) {
+  return cake.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+         cake.desc.toLowerCase().includes(searchTerm.toLowerCase());
 }
 
 function mapDispatchToProps(dispatch) {

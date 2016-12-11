@@ -3,8 +3,7 @@ import * as api from '../api';
 
 export function fetchCakes() {
   return dispatch => {
-    console.log("in here")
-    api.getCakes()
+    return api.getCakes()
       .then((cakes) => {
         dispatch(receivedCakes(cakes));
       })

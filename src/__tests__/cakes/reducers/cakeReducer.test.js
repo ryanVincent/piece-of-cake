@@ -19,12 +19,21 @@ describe('cake reducer', () => {
       }
     ];
 
+    const initialState = [
+      {
+        id: '002',
+        name: 'Rogue cake',
+        description: 'a stray cake',
+        url: 'google.co.uk/images/stray_cake.png'
+      }
+    ];
+
     const action = {
       type: constants.RECEIVED_CAKES,
       cakes: receivedCakes
     }
 
-    const result = cakeReducer([], action);
+    const result = cakeReducer(initialState, action);
 
     expect(result.length).toEqual(2);
     expect(result).toEqual(receivedCakes);

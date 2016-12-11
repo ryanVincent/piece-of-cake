@@ -9,6 +9,9 @@ injectTapEventPlugin();
 let style = {
   cardMedia: {
     borderBottom: '1px solid #efefef'
+  },
+  cardActions: {
+    textAlign: 'right'
   }
 };
 
@@ -62,7 +65,7 @@ export default class CakeItem extends Component {
             <img src={cake.image} />
           </CardMedia>
           <CardTitle title={cake.title} subtitle={cake.desc} />
-          <CardActions>
+          <CardActions style={style.cardActions}>
             <FlatButton label="Edit" onClick={this.handleEditClick} />
           </CardActions>
         </Card>

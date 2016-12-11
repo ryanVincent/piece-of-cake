@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as CakeActions from './actions/cakes';
 
 
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import Dialog from 'material-ui/Dialog';
@@ -61,6 +61,13 @@ export class CakeContainer extends Component {
     )
   }
 }
+
+CakeContainer.PropTypes = {
+  cakes: PropTypes.array,
+  newCake: PropTypes.func,
+  updateCake: PropTypes.func
+
+};
 
 export function mapStateToProps(state) {
     return {

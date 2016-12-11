@@ -45,7 +45,9 @@ class CakeForm extends Component {
 }
 
 CakeForm.propTypes = {
-
+  cake: PropTypes.object,
+  onCancel: PropTypes.func,
+  onSave: PropTypes.func
 };
 
 CakeForm.defaultProps = {

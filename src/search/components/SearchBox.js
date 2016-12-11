@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import TextField from 'material-ui/TextField';
-import Paper from 'material-ui/Paper';
 import FontIcon from 'material-ui/FontIcon';
 
 const style = {
@@ -25,4 +24,8 @@ export default function SearchBox({onChange}) {
       <FontIcon style={style.icon} className='material-icons'>search</FontIcon><TextField underlineFocusStyle={style.textFieldUnderlineFocus} inputStyle={style.textField} hintText="Search" type="search" onChange={onChange} />
     </div>
   )
+}
+
+SearchBox.PropTypes = {
+  onChange: PropTypes.func
 }

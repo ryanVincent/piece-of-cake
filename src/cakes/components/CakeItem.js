@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import React, { Component, PropTypes } from 'react';
+import { Card, CardActions, CardMedia, CardTitle } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import CakeForm from './CakeForm';
@@ -12,6 +12,16 @@ let style = {
   },
   cardActions: {
     textAlign: 'right'
+  },
+  mediaStyle: {
+    height: '336px',
+    overflow: 'hidden'
+  },
+  img: {
+    height: '100%',
+    width: 'auto',
+    maxWidth: 'auto',
+    minWidth: 'auto'
   }
 };
 
@@ -53,16 +63,11 @@ export default class CakeItem extends Component {
 
     let { cake } = this.props;
 
-    const actions = [
-      <FlatButton label="Cancel" onTouchTap={this.handleCloseClick} />,
-      <FlatButton primary={true} label="Save" onTouchTap={this.handleSaveClick} />
-    ];
-
     return (
       <div>
         <Card>
-          <CardMedia style={style.cardMedia}>
-            <img src={cake.image} />
+          <CardMedia mediaStyle={style.mediaStyle} style={style.cardMedia}>
+            <img alt={cake.title} style={style.img} src={cake.image} />
           </CardMedia>
           <CardTitle title={cake.title} subtitle={cake.desc} />
           <CardActions style={style.cardActions}>
@@ -75,5 +80,9 @@ export default class CakeItem extends Component {
       </div>
     );
   }
-
 }
+
+CakeItem.propTypes = {
+  onSaveCakeClick: PropTypes.func,
+  cake: PropTypes.object
+};

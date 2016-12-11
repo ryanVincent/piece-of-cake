@@ -34,7 +34,7 @@ export class Layout extends Component {
       <MuiThemeProvider muiTheme={theme}>
         <div className="App">
           <AppBar showMenuIconButton={false} className="app-bar" title={search} />
-          <div className = "container">
+          <div className="container">
             {this.props.children}
           </div>
         </div>

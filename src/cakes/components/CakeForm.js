@@ -25,8 +25,6 @@ class CakeForm extends Component {
     render() {
         let { cake, onCancel } = this.props;
 
-
-
         return (
           <form name="cakeForm">
             <div className="field">

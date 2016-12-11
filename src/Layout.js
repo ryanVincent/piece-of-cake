@@ -7,12 +7,12 @@ import * as SearchTermActions from './search/actions/searchTerm';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-let style = {
-  appBar: {
-    position: 'fixed',
-    top: 0
-  }
-};
+// let style = {
+//   appBar: {
+//     position: 'fixed',
+//     top: 0
+//   }
+// };
 
 export class Layout extends Component {
 
@@ -33,7 +33,7 @@ export class Layout extends Component {
     return (
       <MuiThemeProvider muiTheme={theme}>
         <div className="App">
-          <AppBar showMenuIconButton={false} style={style.appBar} className="app-bar" title={search} />
+          <AppBar showMenuIconButton={false} className="app-bar" title={search} />
           <div className = "container">
             {this.props.children}
           </div>

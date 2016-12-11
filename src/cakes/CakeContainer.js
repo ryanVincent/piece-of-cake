@@ -17,6 +17,7 @@ export class CakeContainer extends Component {
     this.handleNewCakeClick = this.handleNewCakeClick.bind(this);
     this.handleSaveClick = this.handleSaveClick.bind(this);
     this.handleSaveCakeClick = this.handleSaveCakeClick.bind(this);
+    this.handleCloseClick = this.handleCloseClick.bind(this);
 
     this.state = {
       newCakeModalOpen : false
@@ -31,7 +32,7 @@ export class CakeContainer extends Component {
 
   handleCloseClick() {
     this.setState({
-      open: false
+      newCakeModalOpen: false
     });
   }
 

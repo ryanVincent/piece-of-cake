@@ -2,7 +2,9 @@
 
 ## Getting Started
 
-To run application
+The application can be viewed at https://tasty-cakes.herokuapp.com/.
+
+To run application locally
 
 ```
 git clone https://github.com/ryanVincent/piece-of-cake/
